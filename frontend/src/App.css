@@ -1,0 +1,79 @@
+#app {
+    height: 100vh;
+    text-align: center;
+}
+
+#logo {
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    padding: 4% 0 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+}
+.btns{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 200px;
+}
+.btn{
+    color: #1b2636;
+    background-color: #f54f28;
+    padding:10px;
+    border-color: unset;
+    margin: 5px;
+    border-radius: 10px;
+    width: 200px;
+    border: unset;
+}
+.btn:hover{
+    color: white;
+    background-color: #f5a028;
+}
+.btns-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    margin-right: 10px;
+}
+.btn-header{
+    color: white;
+    background-color: unset;
+    border: unset;
+    font-size: 20px;
+    height: 100%;
+    margin-right: 20px;
+    /*width: 75px;*/
+    height: 75px;
+}
+
+.btn-header:hover{
+    color:#1b2636
+}
+.header-logo{
+    width: 75px;
+    height: 75px;
+}
+#header{
+    background-color: #f54f28;
+}
+
+.main-shedule{
+    margin-right: 50px;
+}
+.main-shedule ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.main-shedule ul li{
+    float: left;
+    margin: auto;
+}
