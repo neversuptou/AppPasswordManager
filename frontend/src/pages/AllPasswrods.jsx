@@ -1,45 +1,38 @@
 import Header from "../Components/Header";
 import {GetPass} from "../../wailsjs/go/main/App.js";
+import React, { useEffect, useState } from 'react';
 
-window.onload = function() {
-    loadPasswords();
-};
-
-async function loadPasswords() {
-    const passwords = await GetPass(); // Вызов метода Go
-    const passwordsContainer = document.getElementById('passwordsContainer');
-    console.log(passwords)
-    passwords.forEach(password => {
-        const li = document.createElement('li');
-        li.textContent = `ID: ${password.id}, URL: ${password.url}, Login: ${password.login}, Password: ${password.password}`;
-        passwordsContainer.appendChild(li);
-    });
-}
-
-// Вызов функции при загрузке страницы
-window.onload = loadPasswords;
+const password = GetPass() // ARRAY
 
 export const AllPasswords = () => {
-    return(
-        <><Header/>
+    const [password, setPassword] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await GetPass();
+            setPassword(data);
+        };
+        fetchData();
+    }, []);
+
+    return (
+        <>
+            <Header />
             <h1>Все пароли</h1>
             <div className={"main-shedule"}>
-                <ul>
-                    <li>
-                        id
-                    </li>
-                    <li>
-                        Url-сайта
-                    </li>
-                    <li>
-                        Логин
-                    </li>
-                    <li>
-                        Пароль
-                    </li>
-                </ul>
-                <div id="passwordsContainer"></div>
+                <div className="passwordContainer">
+                    <ul>
+                        {password.map((item, index) => (
+                            <li key={index}>
+                                <div>id: {item.id}</div>
+                                <div>Url-сайта: {item.url}</div>
+                                <div>Логин: {item.login}</div>
+                                <div>Пароль: {item.password}</div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </>
-    )
-}
+    );
+};

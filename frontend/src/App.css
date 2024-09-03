@@ -77,3 +77,13 @@
     float: left;
     margin: auto;
 }
+.passwordContainer ul{
+    flex-direction: column;
+
+}
+.passwordContainer ul li{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-between;
+}
